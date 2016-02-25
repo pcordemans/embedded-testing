@@ -3,7 +3,7 @@
  *
  * TDD4ES workshop
  * The MIT License (MIT)
- * 
+ *
  * Copyright (c) 2013 EP Research
  * [Released under MIT License. Please refer to license.txt for details]
  */
@@ -38,10 +38,12 @@ void unity_run_tests(void) {
 	Unity.TestFile = "test/Tests.cpp";
 	UnityBegin();
 
-	// RUN_TEST calls runTest
+	// Tests on Host
 	RUN_TEST(LEDTest, 1);
 	RUN_TEST(LED_other_Test, 2);
 	RUN_TEST(LED_direction_reg_test, 3);
+
+	//Tests on Target
 	#ifndef TEST_ON_HOST
 	RUN_TEST(LED_real_Test, 4);
 	#endif
@@ -50,4 +52,3 @@ void unity_run_tests(void) {
 	UnityEnd();
 
 }
-

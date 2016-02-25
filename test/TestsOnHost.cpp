@@ -12,10 +12,6 @@
 
 #include "stdint.h"
 
-#ifndef TEST_ON_HOST
-#include <LPC17xx.h>
-#endif
-
 void setUp(void) {
 
 }
@@ -37,14 +33,6 @@ void LEDTest(void) {
 
 	delete led_fake;
 }
-
-#ifndef TEST_ON_HOST
-void LED_real_Test(void) {
-	LED led_real = LED(&LPC_GPIO1->FIOPIN, 18);
-	led_real.on();
-	TEST_ASSERT(LPC_GPIO1->FIOPIN & (1 << 18));
-}
-#endif
 
 void LED_direction_reg_test() {
 	volatile uint32_t gpio_reg [6] = {0};
